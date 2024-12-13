@@ -139,6 +139,8 @@ def editarprofesores(req,nombre_profesor):
             profesor.nombre = info["nombre"]
             profesor.apellido = info["apellido"]
             profesor.email = info["email"]
+            profesor.inasistencias = info["inasistencias"]
+            profesor.fecha_de_nacimiento = info["fecha_de_nacimiento"]
             profesor.save()
         
             return redirect("profesores")
