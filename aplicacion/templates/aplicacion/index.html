@@ -9,8 +9,11 @@
 <body>
     {% extends "aplicacion/padre.html"%}
         {%load static%}
-        {% block inicio%}
+        {%block contenido%}
         <h2>INICIO</h2>
+        <p style="font-size:50px;text-align: center;margin:40px">{{mensaje}}</p>
+
+        <p style="font-size:30px;text-align: justify;margin:50px">El palermo chico es un colegio ubicado en palermo que da clases desde hace mas de 50 años. Arranco en palermo chico y despues se mudo a palermo soho donde esta el colegio ahora! El colegio cuenta con jardin de infantes, primaria y secundaria y ofrece una excenlente educación a todos sus estudiantes</p>
         {% endblock %}
 </body>
 </html>

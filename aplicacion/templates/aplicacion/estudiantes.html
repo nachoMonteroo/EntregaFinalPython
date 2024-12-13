@@ -9,8 +9,35 @@
 <body>
     {% extends "aplicacion/padre.html"%}
         {%load static%}
-        {%block estudiantes%}
-        <h2>ESTUDIANTES</h2>
-        {%endblock%}
+
+        {%block contenido%}
+            <h2>ESTUDIANTES</h2>
+            <div>
+                {%for alumno in estudiantes%}
+                    <li>
+                        {{alumno.nombre}}
+                        {{alumno.apellido}}
+                        {{alumno.ano}}
+                    </li>
+                    {%if user.is_authenticated%}
+                    <button>
+                        <a href="{% url 'infoalumnos' alumno.nombre %}">Info</a>
+                    </button>
+                    {%endif%}
+                    {%if user.is_superuser%}
+                    <button>
+                        <a href="{% url 'eliminaralumnos' alumno.nombre %}">Borrar</a>
+                    </button>
+                    <button>
+                        <a href="{% url 'editaralumnos' alumno.nombre %}">Editar</a>
+                    </button>
+                    {%endif%}
+                {%endfor%}
+                <br>
+            </div>
+            {%if user.is_superuser%}
+            <a href="{%url 'agregaralumnos'%}">Agregar Alumno</a>
+            {%endif%}
+        {%endblock contenido%}
 </body>
 </html>

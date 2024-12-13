@@ -3,17 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hola</title>
+    <title></title>
     <link rel="stylesheet" href="../../static/css/styles.css">
-    <!---->
 </head>
 <body>
-        {% extends "aplicacion/padre.html"%}
-
+    {% extends "aplicacion/padre.html"%}
         {%load static%}
 
-        {% block content %}
+        {%block contenido%}
             <h2>PROFESORES</h2>
-        {% endblock %}
+            <div>
+                {%for profesor in profesores%}
+                    <li>
+                        {{profesor.nombre}}
+                        {{profesor.apellido}}
+                    </li>
+                    {%if user.is_authenticated%}
+                    <button>
+                        <a href="{% url 'infoprofesores' profesor.nombre %}">Info</a>
+                    </button>
+                    {%endif%}
+                    {%if user.is_superuser%}
+                    <button>
+                        <a href="{% url 'eliminarprofesores' profesor.nombre %}">Borrar</a>
+                    </button>
+                    <button>
+                        <a href="{% url 'editarprofesores' profesor.nombre %}">Editar</a>
+                    </button>
+                    {%endif%}
+                {%endfor%}
+                <br>
+                {%if user.is_superuser%}
+                <a href="{% url 'agregarprofesores' %}">Agregar Profesores</a>
+                {%endif%}
+        {%endblock contenido%} 
 </body>
 </html>
