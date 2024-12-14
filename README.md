@@ -23,7 +23,7 @@ Este proyecto es una aplicación web desarrollada con **Python** y **Django** pa
 ### SuperAdmin
 Este es el usuario con permisos como la creacion, edicion y eliminacion de profesores y estudiantes y tambien nos permite gestionar el panel de django admin
 - **Usuario:** Admin
-- **Contraseña:** djangocontra
+- **Contraseña:** djangocontra/contradjango
 
 ### Video:
 https://www.youtube.com/watch?v=6FDAWGOdyiY
